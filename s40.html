@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评审费录入系统</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .pg-header{
+            width: 980px;
+            margin: 0 auto;
+            text-align: center;
+            /*background-color: red;*/
+        }
+        .pg-content{
+            width: 980px;
+            border: 1px solid;
+            margin: 0 auto;
+        }
+        .first_line{
+            width: 240px;
+            height: 100px;
+            border-right:1px solid;
+            /*border-bottom:1px solid;*/
+            float: left;
+            line-height: 100px;
+            padding: 2px;
+        }
+        .pg-content table input{
+            width: 140px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pg-header">
+        <h2>省 采 购 中 心</h2>
+    </div>
+    <div class="pg-content">
+        <!--<div class = "first_line">时间 <input type="date"></div>-->
+        <!--<div class = "first_line">项目编号 <input type="text" value="2018-"></div>-->
+        <!--<div class = "first_line">项目经办人 <input type="text"></div>-->
+        <!--<div class = "first_line">结算证品号 <input type="text"></div>-->
+        <!--<div style="clear: both"></div>-->
+
+        <table  cellpadding="10px" style="font-size: 10px"> <!--<table>表格，tr表示行，td表示列 border="1"表示加上边框-->
+            <tr>
+                <th >时间</th>
+                <td><input type="date"></td>
+                <th>项目编号</th>
+                <td  ><input type="text" value="2018"  onblur="Td1Blur(this)"></td>
+                <th>项目经办人</th>
+                <td><input id = "name" type="text"></td>
+                <th>结算证品号</th>
+                <td><input type="text"></td>
+            </tr>
+            <tr style="">
+                <th >专家姓名</th>
+                <td><input type="text"></td>
+                <th>身份证号</th>
+                <td><input type="text" value=""></td>
+                <th>手机号码</th>
+                <td><input type="text"></td>
+                <th>金额</th>
+                <td><input type="text"></td>
+            </tr>
+        </table>
+
+
+
+    </div>
+    <div class="pg-footer"></div>
+
+    <script>
+
+        function Td1Blur(tag) {
+            var obj = {
+            "l":"李娜",
+            "r":"张嫣"
+            };
+
+            var match_tag = tag.value.toLowerCase()[4];   //取出字母
+
+            if (match_tag in obj){
+
+                var next_tag = document.getElementById("name");  //得到要匹配输入的标签
+
+                next_tag.value = obj[match_tag]           //赋值
+            }
+
+        }
+    </script>
+</body>
+</html>
