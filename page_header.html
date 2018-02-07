@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href = "fontawesome-free-5.0.6/on-server/css/fontawesome-all.min.css">
+    <style>
+        body{
+            margin: 0 auto;
+        }
+        .left{
+            float: left;
+        }
+
+        .right{
+            float: right;
+        }
+
+        .pg_header{
+            height: 48px;
+            background-color: #399bff;
+            line-height: 48px;   /*高度居中*/
+        }
+        .pg_content .first_layer{
+            background-color: white;
+            position: fixed;
+            top: 48px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        .pg_content .layer{
+            background-color: white;
+            border: 1px solid black;
+            height: 400px;
+            width: 800px;
+            margin: 20px auto;
+            position: fixed;
+            top: 48px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+        }
+        .pg_content .second_layer{
+            z-index: 9;
+        }
+        .pg_content .third_layer{
+            z-index: 10;
+            width: 980px;
+            display: none;
+        }
+        .pg_content .layer .header{
+            height: 48px;
+            border-bottom: 1px solid black;
+            line-height: 48px;
+        }
+        .pg_content .layer .header .search{
+            position: relative;
+            height: 30px;
+            width: 160px;
+        }
+        .pg_content .layer .header .search input{
+            height: 30px;
+            width: 127px;
+            padding-right: 24px
+        }
+        .pg_content .layer .header .search .ab{
+                        position: absolute;
+                        right: 5px;
+                        top: 15px;
+                        width: 20px;
+                        padding: 3px;
+        }
+
+        .pg_content .layer .header .search i:hover{
+            background-color: #eeeeee;
+
+        }
+        /*td{*/
+            /*width: 50px;*/
+        /*}*/
+        /*table{*/
+            /*width: 500px;*/
+        /*}*/
+        .pg_content .second_layer .content{
+            height: 300px;
+            border-bottom: 1px solid black;
+            width: 800px;
+        }
+
+
+        .pg-header{
+            width: 980px;
+            margin: 0 auto;
+            text-align: center;
+            /*background-color: red;*/
+        }
+        .pg-content{
+            width: 980px;
+            /*border: 1px solid;*/
+            margin: 0 auto;
+        }
+        .first_line{
+            width: 240px;
+            height: 100px;
+            /*border-right:1px solid;*/
+            /*border-bottom:1px solid;*/
+            float: left;
+            line-height: 100px;
+            padding: 2px;
+        }
+        .pg-content table{
+            text-align: center;
+        }
+        .pg-content table input{
+            width: 140px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pg_header">
+
+    </div>
+
+    <div class="pg_content">
+        <div class="first_layer"></div>
+
+        <div class="layer second_layer">
+            <div class="header">
+                <div class="left">勺子的主页</div>
+                <div class="right search">
+                    <input type="text">
+
+                    <i class="fas fa-search ab"></i>  <!--搜索图标-->
+                </div>
+                <div style="clear:both"></div>
+            </div>
+
+            <div class="content">
+                <table border="1" frame="box" width="800px" style="display:inline-block;height:300px;overflow: auto"><!--<table>表格，thead表示头，tbody表示内容行-->
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>项目编号</th>
+                            <th>项目经办人</th>
+                            <th>结算凭证号</th>
+                            <th>专家姓名</th>
+                            <th>身份证</th>
+                            <th>手机号码</th>
+                            <th>金额</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>lxj</td>
+                            <td>1212131231332</td>
+                            <td>330881199190930129</td>
+                            <td>15657136271</td>
+                            <td>2222222222222221</td>
+                            <td>2222</td>
+                            <td>32222</td>
+                            <td>222</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+                    <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                        </tr>
+
+
+
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="footer" style="height: 46px;line-height: 46px;">
+                <div class="right" style="padding-right: 10px"><input  type="button" value="导出"></div>
+                <div class="right" style="padding-right: 10px"><input onclick="PollingTable(this)" type="button" value="登记"></div>
+            </div>
+        </div>
+
+        <!--第三层-->
+        <div id = "th_layer" class="layer third_layer">
+            <div class="pg-header">
+                <h2>省 采 购 中 心</h2>
+            </div>
+            <div class="pg-content">
+                <!--<div class = "first_line">时间 <input type="date"></div>-->
+                <!--<div class = "first_line">项目编号 <input type="text" value="2018-"></div>-->
+                <!--<div class = "first_line">项目经办人 <input type="text"></div>-->
+                <!--<div class = "first_line">结算证品号 <input type="text"></div>-->
+                <!--<div style="clear: both"></div>-->
+                <form>
+                    <table  cellpadding="15px" style="font-size: 10px"> <!--<table>表格，tr表示行，td表示列 border="1"表示加上边框-->
+                        <tr>
+                            <th >时间</th>
+                            <td><input type="date"></td>
+                            <th>项目编号</th>
+                            <td  ><input type="text" value="2018"  onblur="Td1Blur(this)"></td>
+                            <th>项目经办人</th>
+                            <td><input id = "name" type="text"></td>
+                            <th>结算凭证号</th>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr >
+                            <th >专家姓名</th>
+                            <td style="position: relative">
+                                <!--<div >-->
+                                    <input type="text">
+                                    <div style="position: absolute;height: auto;width:142px;border: 1px solid black;opacity: 0.8"></div>
+                                <!--</div>-->
+                            </td>
+                            <th>身份证号</th>
+                            <td><input type="text" value=""></td>
+                            <th>手机号码</th>
+                            <td><input type="text"></td>
+                            <th>金额</th>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+
+                            <td colspan="4"><input style="height: 60px;width: 90px" type="submit" value="保存" /></td>
+
+                            <td colspan="4" ><input style="height: 60px;width: 90px" type="reset" value="重置" /></td>
+
+                        </tr>
+
+
+                    </table>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="page_footer"></div>
+
+    <script>
+
+        function Td1Blur(tag) {
+            var obj = {
+                "b":"朱文英",
+                "c":"高明",
+                "d":"杜鹃鸣",
+                "e":"周璇",
+                "f":"冯妙吉",
+                "g":"高媛沁",
+                "h":"杨连娣",
+                "k":"程则彬",
+                "l":"李娜",
+                "m":"金子超",
+                "n":"王凯圩",
+                "q":"邵玲芳",
+                "r":"张嫣",
+                "s":"孙晨",
+                "v":"吴佳丽",
+                "y":"吴云飞",
+                "x":"蔡窈倩",
+                "z":"刘余",
+                "j":"孙松丽"
+            };
+
+            var match_tag = tag.value.toLowerCase()[4];   //取出字母
+
+            if (match_tag in obj){
+
+                var next_tag = document.getElementById("name");  //得到要匹配输入的标签
+
+                next_tag.value = obj[match_tag]           //赋值
+            }
+
+        }
+
+        function PollingTable(ths) {
+            th_layer = document.getElementById("th_layer");
+            th_layer.style.display = "block"
+        }
+    </script>
+</body>
+</html>
