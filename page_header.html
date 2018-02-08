@@ -52,7 +52,7 @@
         }
         .pg_content .layer .header{
             height: 48px;
-            border-bottom: 1px solid black;
+            /*border-bottom: 1px solid black;*/
             line-height: 48px;
         }
         .pg_content .layer .header .search{
@@ -77,12 +77,7 @@
             background-color: #eeeeee;
 
         }
-        /*td{*/
-            /*width: 50px;*/
-        /*}*/
-        /*table{*/
-            /*width: 500px;*/
-        /*}*/
+
         .pg_content .second_layer .content{
             height: 300px;
             border-bottom: 1px solid black;
@@ -90,30 +85,30 @@
         }
 
 
-        .pg-header{
+        .pg_reg_header{
             width: 980px;
             margin: 0 auto;
             text-align: center;
             /*background-color: red;*/
         }
-        .pg-content{
+        .pg_reg_content{
             width: 980px;
             /*border: 1px solid;*/
             margin: 0 auto;
         }
-        .first_line{
-            width: 240px;
-            height: 100px;
-            /*border-right:1px solid;*/
-            /*border-bottom:1px solid;*/
-            float: left;
-            line-height: 100px;
-            padding: 2px;
-        }
-        .pg-content table{
+        /*.first_line{*/
+            /*width: 240px;*/
+            /*height: 100px;*/
+            /*!*border-right:1px solid;*!*/
+            /*!*border-bottom:1px solid;*!*/
+            /*float: left;*/
+            /*line-height: 100px;*/
+            /*padding: 2px;*/
+        /*}*/
+        .pg_reg_content table{
             text-align: center;
         }
-        .pg-content table input{
+        .pg_reg_content table input{
             width: 140px;
             height: 20px;
         }
@@ -129,9 +124,13 @@
 
         <div class="layer second_layer">
             <div class="header">
-                <div class="left">勺子的主页</div>
+                <!--<div >-->
+                    <input class="left" style="margin-top:10px;margin-left:10px;height: 30px;width: 50px;" type="button" value="导入">
+                    <input class="left" style="margin-top:10px;margin-left:10px;height: 30px;width: 50px;" type="button" value="导出">
+                <!--</div>-->
+                <!--<div class="left" style="padding-left: 20px;height: 30px;width: 50px;"><input type="button" value="导出"></div>-->
                 <div class="right search">
-                    <input type="text">
+                    <input type="text" placeholder="Search">
 
                     <i class="fas fa-search ab"></i>  <!--搜索图标-->
                 </div>
@@ -139,7 +138,7 @@
             </div>
 
             <div class="content">
-                <table border="1" frame="box" width="800px" style="display:inline-block;height:300px;overflow: auto"><!--<table>表格，thead表示头，tbody表示内容行-->
+                <table border="1" cellspacing="0" style="display:inline-block;width:798px;height:300px;overflow: auto"><!--<table>表格，thead表示头，tbody表示内容行-->
                     <thead>
                         <tr>
                             <th>时间</th>
@@ -155,11 +154,11 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>lxj</td>
+                            <td>lxaaaaaaaj</td>
                             <td>1212131231332</td>
                             <td>330881199190930129</td>
                             <td>15657136271</td>
-                            <td>2222222222222221</td>
+                            <td>222222222222222222222222222222222221</td>
                             <td>2222</td>
                             <td>32222</td>
                             <td>222</td>
@@ -193,66 +192,71 @@
                 </table>
             </div>
             <div class="footer" style="height: 46px;line-height: 46px;">
-                <div class="right" style="padding-right: 10px"><input  type="button" value="导出"></div>
-                <div class="right" style="padding-right: 10px"><input onclick="PollingTable(this)" type="button" value="登记"></div>
+                <input class="right" style="margin-top:10px;margin-right:10px;height: 30px;width: 50px;" type="button" value="登记" onclick="PollingTable(this)">
             </div>
         </div>
 
         <!--第三层-->
-        <div id = "th_layer" class="layer third_layer">
-            <div class="pg-header">
-                <h2>省 采 购 中 心</h2>
-            </div>
-            <div class="pg-content">
-                <!--<div class = "first_line">时间 <input type="date"></div>-->
-                <!--<div class = "first_line">项目编号 <input type="text" value="2018-"></div>-->
-                <!--<div class = "first_line">项目经办人 <input type="text"></div>-->
-                <!--<div class = "first_line">结算证品号 <input type="text"></div>-->
-                <!--<div style="clear: both"></div>-->
-                <form>
-                    <table  cellpadding="15px" style="font-size: 10px"> <!--<table>表格，tr表示行，td表示列 border="1"表示加上边框-->
-                        <tr>
-                            <th >时间</th>
-                            <td><input type="date"></td>
-                            <th>项目编号</th>
-                            <td  ><input type="text" value="2018"  onblur="Td1Blur(this)"></td>
-                            <th>项目经办人</th>
-                            <td><input id = "name" type="text"></td>
-                            <th>结算凭证号</th>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr >
-                            <th >专家姓名</th>
-                            <td style="position: relative">
-                                <!--<div >-->
-                                    <input type="text">
-                                    <div style="position: absolute;height: auto;width:142px;border: 1px solid black;opacity: 0.8"></div>
-                                <!--</div>-->
-                            </td>
-                            <th>身份证号</th>
-                            <td><input type="text" value=""></td>
-                            <th>手机号码</th>
-                            <td><input type="text"></td>
-                            <th>金额</th>
-                            <td><input type="text"></td>
-                        </tr>
-                        <tr>
+        <div  >
+            <!--录入界面弹出框-->
+            <div id = "th_layer" class="layer third_layer">
+                <div class="pg_reg_header">
+                    <h2>省 采 购 中 心</h2>
+                </div>
+                <div class="pg_reg_content">
 
-                            <td colspan="4"><input style="height: 60px;width: 90px" type="submit" value="保存" /></td>
+                    <form>
+                        <table  cellpadding="15px" style="font-size: 10px"> <!--<table>表格，tr表示行，td表示列 border="1"表示加上边框-->
+                            <tr>
+                                <th >时间</th>
+                                <td><input type="date"></td>
+                                <th>项目编号</th>
+                                <td  ><input type="text" value="2018"  onblur="Td1Blur(this)"></td>
+                                <th>项目经办人</th>
+                                <td><input id = "name" type="text"></td>
+                                <th>结算凭证号</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr >
+                                <th >专家姓名</th>
+                                <td style="position: relative">
+                                    <!--<div >-->
+                                        <input type="text">
+                                        <div style="position: absolute;height: auto;width:142px;border: 1px solid black;opacity: 0.8"></div>
+                                    <!--</div>-->
+                                </td>
+                                <th>身份证号</th>
+                                <td><input type="text" value=""></td>
+                                <th>手机号码</th>
+                                <td><input type="text"></td>
+                                <th>金额</th>
+                                <td><input type="text"></td>
+                            </tr>
+                            <tr>
 
-                            <td colspan="4" ><input style="height: 60px;width: 90px" type="reset" value="重置" /></td>
+                                <td colspan="4"><input style="height: 60px;width: 90px" type="submit" value="保存" /></td>
 
-                        </tr>
+                                <td colspan="4" ><input style="height: 60px;width: 90px" type="reset" value="重置" /></td>
+
+                            </tr>
 
 
-                    </table>
+                        </table>
 
-                </form>
+                    </form>
 
+                </div>
             </div>
         </div>
+
+        <!--&lt;!&ndash;第三层，导出表格界面&ndash;&gt;-->
+        <!--<div id="save_layer" class="layer third_layer">-->
+            <!---->
+        <!--</div>-->
     </div>
-    <div class="page_footer"></div>
+    <div class="page_footer">
+
+    </div>
 
     <script>
 
