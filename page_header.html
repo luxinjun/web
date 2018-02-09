@@ -15,19 +15,27 @@
         .right{
             float: right;
         }
+        .display{
+            display: none;
+        }
 
         .pg_header{
             height: 48px;
             background-color: #399bff;
             line-height: 48px;   /*高度居中*/
         }
+        /*遮罩层*/
         .pg_content .first_layer{
             background-color: white;
-            position: fixed;
+            /*position: fixed;*/
+            position: absolute;
             top: 48px;
             bottom: 0;
             left: 0;
             right: 0;
+            z-index: 8;
+            opacity: 0.8;
+            display: none;
         }
         .pg_content .layer{
             background-color: white;
@@ -35,20 +43,23 @@
             height: 400px;
             width: 800px;
             margin: 20px auto;
-            position: fixed;
+            /*position: fixed;*/
+            position: absolute;
             top: 48px;
             bottom: 0;
             left: 0;
             right: 0;
 
+
         }
         .pg_content .second_layer{
-            z-index: 9;
+            z-index: 7;
         }
         .pg_content .third_layer{
-            z-index: 10;
+            z-index: 9;
             width: 980px;
-            display: none;
+            /*opacity: 0.8;*/
+            /*display: none;*/
         }
         .pg_content .layer .header{
             height: 48px;
@@ -96,15 +107,7 @@
             /*border: 1px solid;*/
             margin: 0 auto;
         }
-        /*.first_line{*/
-            /*width: 240px;*/
-            /*height: 100px;*/
-            /*!*border-right:1px solid;*!*/
-            /*!*border-bottom:1px solid;*!*/
-            /*float: left;*/
-            /*line-height: 100px;*/
-            /*padding: 2px;*/
-        /*}*/
+
         .pg_reg_content table{
             text-align: center;
         }
@@ -120,13 +123,15 @@
     </div>
 
     <div class="pg_content">
-        <div class="first_layer"></div>
+        <!--遮罩层-->
+        <div id = "i1" class="first_layer"></div>
 
+        <!--主显示界面-->
         <div class="layer second_layer">
             <div class="header">
                 <!--<div >-->
                     <input class="left" style="margin-top:10px;margin-left:10px;height: 30px;width: 50px;" type="button" value="导入">
-                    <input class="left" style="margin-top:10px;margin-left:10px;height: 30px;width: 50px;" type="button" value="导出">
+                    <input class="left" style="margin-top:10px;margin-left:10px;height: 30px;width: 50px;" type="button" value="导出" onclick="PollingTable(this)">
                 <!--</div>-->
                 <!--<div class="left" style="padding-left: 20px;height: 30px;width: 50px;"><input type="button" value="导出"></div>-->
                 <div class="right search">
@@ -192,14 +197,14 @@
                 </table>
             </div>
             <div class="footer" style="height: 46px;line-height: 46px;">
-                <input class="right" style="margin-top:10px;margin-right:10px;height: 30px;width: 50px;" type="button" value="登记" onclick="PollingTable(this)">
+                <input class="right" style="margin-top:10px;margin-right:10px;height: 30px;width: 50px;" type="button" value="登记" onclick="RegisterTable(this)">
             </div>
         </div>
 
         <!--第三层-->
         <div  >
             <!--录入界面弹出框-->
-            <div id = "th_layer" class="layer third_layer">
+            <div id = "th_layer" class="layer third_layer display" >
                 <div class="pg_reg_header">
                     <h2>省 采 购 中 心</h2>
                 </div>
@@ -246,6 +251,29 @@
                     </form>
 
                 </div>
+            </div>
+
+            <!--导出表格弹出框-->
+            <div id = "save_layer"  class="layer third_layer display" style="background-color: white;width: 600px;">
+                <h3 style="height: 90px;border-bottom: 1px solid darkgray;line-height: 90px;text-align: center;margin: 0 auto;width: 580px">
+                    表格导出
+                </h3>
+                <div style="height: 90px;width:520px;margin:0 auto;line-height:100px;border-bottom: 1px solid darkgray">
+                    <span>对象</span>
+                    <select name = "tables" style="height: 30px;margin-left: 40px">
+                        <option value="table1">凭证号表</option>
+                        <option value="table2">评审费数据表</option>
+                    </select>
+                </div>
+                <div style="height: 90px;width:520px;margin:0 auto;line-height:100px;border-bottom: 1px solid darkgray">
+                    <span>开始时间:&nbsp;&nbsp;</span><input type="date">
+                    <span style="display: inline-block;margin-left: 30px">结束时间: &nbsp;&nbsp;<input type="date"></span>
+                </div>
+                <div style="height: 90px;line-height: 90px;text-align: center">
+                    <input type="button" value="确定" style="padding-left: 10px;padding-top:4px">
+                    <input type="button" value="取消" style="margin-left:20px;padding-left: 10px;padding-top:4px">
+                </div>
+
             </div>
         </div>
 
@@ -295,8 +323,17 @@
         }
 
         function PollingTable(ths) {
-            th_layer = document.getElementById("th_layer");
-            th_layer.style.display = "block"
+            var th_layer = document.getElementById("save_layer");
+            var mask_layer = document.getElementById("i1");
+             th_layer.style.display = "block";
+             mask_layer.style.display = "block"
+        }
+
+        function RegisterTable(ths) {
+            var th_layer = document.getElementById("th_layer");
+            var mask_layer = document.getElementById("i1");
+             th_layer.style.display = "block";
+             mask_layer.style.display = "block"
         }
     </script>
 </body>
